@@ -202,7 +202,9 @@ class TwitterBootstrapHelper extends AppHelper {
 		}
 		return $this->Form->text($name, $options);
 	}
-	
+	public function endForm($foo = null) {
+            $this->Form->end('asdf');
+        }
 	/**
 	 * Takes an array of options to output markup that works with
 	 * twitter bootstrap forms.
