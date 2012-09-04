@@ -203,13 +203,27 @@ class TwitterBootstrapHelper extends AppHelper {
 		return $this->Form->text($name, $options);
 	}
         
+        public function createForm($model, $options = null) {
+            $options = array_merge($options, array(
+                'class' => 'form-horizontal',
+                'inputDefaults' => array(
+                    'format' => array('before', 'label', 'between', 'input', 'error', 'after'),
+                    'div' => array('class' => 'control-group'),
+                    'label' => array('class' => 'control-label'),
+                    'between' => '<div class="controls">',
+                    'after' => '</div>',
+                    'error' => array('attributes' => array('wrap' => 'span', 'class' => 'help-inline')),
+                    )));
+            return $this->Form->create($model, $options);
+        }
+
         /**
          * End submit button and form closing tag
          * @param string $label
          * @return string 
          */
 	public function endForm($label = null) {
-            return '<button type="submit" class="btn">'.$label.'</button></form>';
+            return '<div class="control-group"><div class="controls"><button type="submit" class="btn">'.$label.'</button></div></div></form>';
         }
         
 	/**
