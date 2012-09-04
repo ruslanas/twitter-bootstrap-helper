@@ -202,9 +202,16 @@ class TwitterBootstrapHelper extends AppHelper {
 		}
 		return $this->Form->text($name, $options);
 	}
-	public function endForm($foo = null) {
-            $this->Form->end('asdf');
+        
+        /**
+         * End submit button and form closing tag
+         * @param string $label
+         * @return string 
+         */
+	public function endForm($label = null) {
+            return '<button type="submit" class="btn">'.$label.'</button></form>';
         }
+        
 	/**
 	 * Takes an array of options to output markup that works with
 	 * twitter bootstrap forms.
