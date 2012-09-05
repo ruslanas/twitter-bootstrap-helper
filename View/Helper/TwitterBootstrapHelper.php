@@ -211,7 +211,7 @@ class TwitterBootstrapHelper extends AppHelper {
          * @return string
          */
         public function createForm($model, $options = array()) {
-            $options = array_merge($options, array(
+            $options = array_merge(array(
                 'class' => 'form-horizontal',
                 'inputDefaults' => array(
                     'format' => array('before', 'label', 'between', 'input', 'error', 'after'),
@@ -220,7 +220,7 @@ class TwitterBootstrapHelper extends AppHelper {
                     'between' => '<div class="controls">',
                     'after' => '</div>',
                     'error' => array('attributes' => array('wrap' => 'span', 'class' => 'help-inline')),
-                    )));
+                    )), $options);
             return $this->Form->create($model, $options);
         }
 
