@@ -203,7 +203,14 @@ class TwitterBootstrapHelper extends AppHelper {
 		return $this->Form->text($name, $options);
 	}
         
-        public function createForm($model, $options = null) {
+        /**
+         * Creates horizontal form
+         * 
+         * @param string $model
+         * @param array $options
+         * @return string
+         */
+        public function createForm($model, $options = array()) {
             $options = array_merge($options, array(
                 'class' => 'form-horizontal',
                 'inputDefaults' => array(
@@ -219,6 +226,7 @@ class TwitterBootstrapHelper extends AppHelper {
 
         /**
          * End submit button and form closing tag
+		 *
          * @param string $label
          * @return string 
          */
