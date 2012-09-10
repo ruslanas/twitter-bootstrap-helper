@@ -230,8 +230,9 @@ class TwitterBootstrapHelper extends AppHelper {
          * @param string $label
          * @return string 
          */
-	public function endForm($label = null) {
-            return '<div class="control-group"><div class="controls"><button type="submit" class="btn">'.$label.'</button></div></div></form>';
+	public function endForm($label = null, $options = array()) {
+			$options = array_merge(array('class'=>'btn'), $options);
+            return '<div class="control-group"><div class="controls"><button type="submit" class="'.$options['class'].'">'.$label.'</button></div></div></form>';
         }
         
 	/**
@@ -287,9 +288,12 @@ class TwitterBootstrapHelper extends AppHelper {
 		if ($options["state"] !== false) {
 			$wrap_class = "{$wrap_class} {$options["state"]}";
 		}
+		
+		$text = $options['label'].$input;
+		
 		return $this->Html->tag(
 			"div",
-			$options['label'].$input,
+			$text,
 			array("class" => $wrap_class)
 		);
 	}
